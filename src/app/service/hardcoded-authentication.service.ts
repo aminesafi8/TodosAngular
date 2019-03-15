@@ -10,24 +10,25 @@ export class HardcodedAuthenticationService {
   authenticate(username, password) {
     //console.log('before ' + this.isUserLoggedIn());
     if (username === 'in28minutes' && password == 'dummy') {
-     sessionStorage.setItem('authenticatedUser',username);
-     //console.log('After '+this.isUserLoggedIn());
-     return true;
+      sessionStorage.setItem('authenticatedUser', username);
+      //console.log('After '+this.isUserLoggedIn());
+      return true;
     }
     return false;
   }
 
 
-  logout(){
+  logout() {
     sessionStorage.removeItem('authenticatedUser');
+
   }
 
 
-  isUserLoggedIn(){
+  isUserLoggedIn() {
     let user = sessionStorage.getItem('authenticatedUser')
-  return !(user === null);
+    return !(user === null);
   }
 
 
-  
+
 }
