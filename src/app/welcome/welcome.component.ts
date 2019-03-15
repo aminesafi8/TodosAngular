@@ -26,13 +26,12 @@ export class WelcomeComponent implements OnInit {
       response => this.handleSuccessfulResponse(response)
 
     );
-    console.log('last line of getWelcomeMessage');
+    
   }
 
   handleSuccessfulResponse(response) {
     this.welcomeMessageFromService=response.message;
-    //console.log(response);
-    //console.log(response.message);
+ 
   }
 
 

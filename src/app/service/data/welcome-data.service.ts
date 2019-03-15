@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 
-export class HelloWorldBean{
+export class HelloWorldBean {
 
-  constructor(public message:string){
+  constructor(public message: string) {
 
   }
 }
@@ -15,14 +15,12 @@ export class HelloWorldBean{
 })
 export class WelcomeDataService {
 
-  constructor(
-    private http:HttpClient
-  ) { }
+  constructor(private http: HttpClient) { }
 
 
-  executeHelloWorldBeanService(){
+  executeHelloWorldBeanService() {
     return this.http.get<HelloWorldBean>('http://localhost:8080/hello-world-bean');
-    //console.log('Execute hello world bean service!');
+    
   }
 
 }
