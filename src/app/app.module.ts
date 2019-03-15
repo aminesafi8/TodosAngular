@@ -29,7 +29,7 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     FormsModule, //activate the ngModel ( two way binding)
-    HttpClientModule // for Http Request (For API)
+    HttpClientModule // for Http Request (For Restful API)
   ],
   providers: [],
   bootstrap: [AppComponent]

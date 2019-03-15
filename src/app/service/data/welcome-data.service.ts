@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-
+//Class to represent the Object retrived by the GET Webservice
+//The expected Object Format
+//Defining the structure of the expected Response
+//http.get<Generic to The Class>
 export class HelloWorldBean {
 
-  constructor(public message: string) {
-
-  }
+  constructor(public message: string) { }
 }
 
 
@@ -21,6 +22,10 @@ export class WelcomeDataService {
   executeHelloWorldBeanService() {
     return this.http.get<HelloWorldBean>('http://localhost:8080/hello-world-bean');
     
+  }
+
+  executeHelloWorldServiceWithPathVariable(name){
+    return this.http.get<HelloWorldBean>(`http://localhost:8080/hello-world/path-variable/${name}`);
   }
 
 }
