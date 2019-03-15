@@ -14,6 +14,10 @@ export class TodoDataService {
     
   }
 
+  deleteTodo(username,id){
+    return this.http.delete(`http://localhost:8080/users/${username}/todos/${id}`);
+  }
+
 
 
 }
