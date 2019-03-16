@@ -9,6 +9,7 @@ export class RouteGuardService implements CanActivate {
 
   constructor(private router: Router, private hardcodedAuthenticationService: HardcodedAuthenticationService) { }
 
+  //Interface that a class can implement to be a guard deciding if a route can be activated
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     console.log('Route Guard Activated!');
     if (this.hardcodedAuthenticationService.isUserLoggedIn())
