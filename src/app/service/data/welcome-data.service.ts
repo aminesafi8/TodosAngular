@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpHeaderResponse } from '@angular/common/http';
 
 //Class to represent the Object retrived by the GET Webservice
 //The expected Object Format
@@ -21,11 +21,26 @@ export class WelcomeDataService {
 
   executeHelloWorldBeanService() {
     return this.http.get<HelloWorldBean>('http://localhost:8080/hello-world-bean');
-    
+
   }
 
-  executeHelloWorldServiceWithPathVariable(name){
-    return this.http.get<HelloWorldBean>(`http://localhost:8080/hello-world/path-variable/${name}`);
+  executeHelloWorldServiceWithPathVariable(name) {
+    let basicAuthHeaderString = this.createBasicAuthenticationHttpHeader();
+    let headers = new HttpHeaders({
+      Authorization:
+        basicAuthHeaderString
+    })
+    return this.http.get<HelloWorldBean>(`http://localhost:8080/hello-world/path-variable/${name}`,
+      { headers });
+  }
+
+
+  //seperate method to create a header to pass it later with every Rest CALL
+  createBasicAuthenticationHttpHeader() {
+    let username = 'in28minutes';
+    let password = 'dummy';
+    let basicAuthHeaderString = 'Basic ' + window.btoa(username + ':' + password);
+    return basicAuthHeaderString;
   }
 
 }
