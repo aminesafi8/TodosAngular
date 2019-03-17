@@ -36,6 +36,8 @@ export class WelcomeDataService {
 
 
   //seperate method to create a header to pass it later with every Rest CALL
+  //Later we will add a HttpInterceptor Otherwise we will copy this method in every new generated Dataservice
+
   createBasicAuthenticationHttpHeader() {
     let username = 'in28minutes';
     let password = 'dummy';
