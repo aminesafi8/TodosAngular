@@ -19,7 +19,7 @@ export class BasicAuthenticationService {
   }
 
 
-  executeBasicAuthenticationService(username, password) {
+  executeAuthenticationService(username, password) {
 
     let basicAuthHeaderString = 'Basic ' + window.btoa(username + ':' + password);
     let headers = new HttpHeaders({
