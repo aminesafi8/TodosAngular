@@ -34,9 +34,13 @@ import { HttpIntercepterBasicAuthService } from './service/http/http-intercepter
     FormsModule, //activate the ngModel ( two way binding)
     HttpClientModule // for Http Request (For Restful API)
   ],
-  providers: [{
-    provide: HTTP_INTERCEPTORS, useClass: HttpIntercepterBasicAuthService, multi: true
-  }],
+  providers: [
+
+    /*{
+      provide: HTTP_INTERCEPTORS, useClass: HttpIntercepterBasicAuthService, multi: true
+    }*/
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
