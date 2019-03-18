@@ -25,24 +25,25 @@ export class WelcomeDataService {
   }
 
   executeHelloWorldServiceWithPathVariable(name) {
-    let basicAuthHeaderString = this.createBasicAuthenticationHttpHeader();
-    let headers = new HttpHeaders({
-      Authorization:
-        basicAuthHeaderString
-    })
+    // let basicAuthHeaderString = this.createBasicAuthenticationHttpHeader();
+    // let headers = new HttpHeaders({
+    //   Authorization:
+    //     basicAuthHeaderString
+    // })
     return this.http.get<HelloWorldBean>(`http://localhost:8080/hello-world/path-variable/${name}`,
-      { headers });
+      //{ headers }
+      );
   }
 
 
   //seperate method to create a header to pass it later with every Rest CALL
   //Later we will add a HttpInterceptor Otherwise we will copy this method in every new generated Dataservice
 
-  createBasicAuthenticationHttpHeader() {
-    let username = 'in28minutes';
-    let password = 'dummy';
-    let basicAuthHeaderString = 'Basic ' + window.btoa(username + ':' + password);
-    return basicAuthHeaderString;
-  }
+  // createBasicAuthenticationHttpHeader() {
+  //   let username = 'in28minutes';
+  //   let password = 'dummy';
+  //   let basicAuthHeaderString = 'Basic ' + window.btoa(username + ':' + password);
+  //   return basicAuthHeaderString;
+  // }
 
 }
